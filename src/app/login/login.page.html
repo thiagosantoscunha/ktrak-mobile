@@ -1,0 +1,18 @@
+<ion-content padding="20">
+  
+  <div style="padding: 30px 16px 10px 16px">
+    <h1>Acesso</h1>
+    <p>Preencha os campos abaixo para ter acesso a caderneta digital</p>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="logar(); $event.preventDefault()">
+    <ion-item>
+      <ion-label position="stacked">Usuario</ion-label>
+      <ion-input type="text" placeholder="Usuario" formControlName="usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Senha</ion-label>
+      <ion-input type="password" placeholder="Senha" formControlName="senha"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="primary" class="ion-margin" type="submit">Acessar</ion-button>
+  </form>
+</ion-content>

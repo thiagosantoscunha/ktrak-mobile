@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cursos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card *ngFor="let c of cursos">
+        <ion-card-header>
+          <ion-card-subtitle>{{ c.professor.nome }}</ion-card-subtitle>
+          <ion-card-title>{{ c.disciplina.nome }}</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <p class="mb-3">Você esta indo bem na aula com o professor {{ c.professor.nome }}. Suas aulas para esta matéria são nos dias:</p>
+          <hr>
+          <ion-badge *ngFor="let dha of c.diaHoraAulas">{{ dha.dia }} às {{ dha.hora }}</ion-badge>
+        </ion-card-content>
+      </ion-card>
+
+</ion-content>

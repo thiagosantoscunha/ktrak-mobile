@@ -4,49 +4,59 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'pages',
     component: TabsPage,
     children: [
+      // {
+      //   path: 'login',
+      //   children: [
+      //     {
+      //       path: '',
+      //       loadChildren: () =>
+      //         import('../login/login.module').then(m => m.LoginPageModule)
+      //     }
+      //   ]
+      // },
       {
-        path: 'tab1',
+        path: 'dashboard',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../dashboard/dashboard.module').then(m => m.DashboardPageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'curso',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../cursos/cursos.module').then(m => m.CursosPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'marcador-presenca',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../marcador-presenca/marcador-presenca.module').then(m => m.MarcadorPresencaPageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/pages/dashboard',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/pages/dashboard',
     pathMatch: 'full'
   }
 ];
