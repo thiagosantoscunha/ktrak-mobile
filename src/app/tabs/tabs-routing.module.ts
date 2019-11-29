@@ -38,12 +38,12 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'marcador-presenca',
+        path: 'qrcode',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../marcador-presenca/marcador-presenca.module').then(m => m.MarcadorPresencaPageModule)
+              import('../qrcode/qrcode.module').then(m => m.QrcodePageModule)
           }
         ]
       },

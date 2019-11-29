@@ -7,10 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'marcador-presenca',
-    loadChildren: () => import('./marcador-presenca/marcador-presenca.module').then( m => m.MarcadorPresencaPageModule)
-  },
-  {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
@@ -21,6 +17,10 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'qrcode',
+    loadChildren: () => import('./qrcode/qrcode.module').then( m => m.QrcodePageModule)
   }
 ];
 @NgModule({

@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AlunoModel } from '../models/aluno.model';
+import { MarcaPresencaModel } from '../models/marca-presenca.model';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AlunoService {
+export class MarcaPresencaService {
 
   private baseUrl: string = environment.base_href + '/mobile/v1/alunos';
   private alunoId = environment.ID_ALUNO_TEST;
@@ -17,8 +18,7 @@ export class AlunoService {
   constructor(private http: HttpClient) {
   }
 
-  findByUsername(): Observable<AlunoModel> {
-    console.log(`Buscando aluno em ${this.baseUrl}?username=${this.username}`);
-    return this.http.get<AlunoModel>(`${this.baseUrl}?username=${this.username}`);
+  marcaPorChave(key: string): Observable<MarcaPresencaModel> {
+    return this.http.get<MarcaPresencaModel>(`${this.baseUrl}?username=${this.username}&key=${key}`);
   }
 }

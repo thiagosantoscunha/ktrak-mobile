@@ -12,6 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CursosService } from './cursos/cursos.service';
 import { AlunoService } from './core/services/aluno.service';
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+import { Dialogs } from '@ionic-native/dialogs';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +26,8 @@ import { AlunoService } from './core/services/aluno.service';
     SplashScreen,
     CursosService,
     AlunoService,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    QRScanner
   ],
   bootstrap: [AppComponent]
 })

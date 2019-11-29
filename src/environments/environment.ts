@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   version_api: 'v1',
-  base_href: 'http://localhost:9001',
+  base_href: 'https://192.168.1.102:8443',
   ID_ALUNO_TEST: 1,
   USERNAME_TEST: 'thalita.cunha',
 };
