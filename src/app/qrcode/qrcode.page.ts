@@ -5,7 +5,7 @@ import { Platform, AlertController } from '@ionic/angular';
 import { Vibration } from '@ionic-native/vibration/ngx';
 import { environment } from 'src/environments/environment';
 import { MarcaPresencaService } from '../core/services/marca-presenca.service';
-import { MarcaPresencaModel } from '../core/models/marca-presenca.model';
+import { MarcaPresencaModel, MarcaPresencaDto } from '../core/models/marca-presenca.model';
 
 @Component({
   selector: 'app-qrcode',
@@ -47,11 +47,11 @@ export class QrcodePage implements OnInit {
           document.getElementsByTagName('body')[0].style.opacity = '1';
           this.qrScan.unsubscribe();
 
-          await this.marcaPresencaService.marcaPorChave(textFound).subscribe( async (model: MarcaPresencaModel) => {
+          await this.marcaPresencaService.marcaPorChave(textFound).subscribe( async (model: any) => {
             const alert = await this.alertController.create({
               header: textFound,
-              subHeader: 'Sucesso!',
-              message: 'Presença marcada com sucesso para o usuário ' + model.username,
+              subHeader: model.isPresente === true ? 'Sucesso!' : 'Falha!',
+              message: 'Presença marcada com sucesso para o usuário ' + model.matricula.aluno.nome,
               buttons: ['OK']
             });
             await alert.present();

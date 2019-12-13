@@ -23,14 +23,6 @@ export class DashboardPage implements OnInit {
   findByActiveUser() {
     this.alunoService.findByUsername().subscribe(async (aluno: AlunoModel) => {
       this.aluno = aluno;
-      const alert = await this.alert.create({
-        header: this.aluno.nome,
-        subHeader: this.aluno.logradouro,
-        message: environment.base_href + 'indo para este endereço',
-        buttons: ['OK']
-      });
-      await alert.present();
-      console.log(aluno);
     }, error => console.error(error));
   }
 
